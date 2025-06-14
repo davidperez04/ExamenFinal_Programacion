@@ -15,6 +15,13 @@ public class Ventas {
         System.out.println("El promedio de las ventas por debajo de los 100.000 es : "+promedio);
         //imprimir ventas sin actividad
         imprimirVentasSinActividad(ventas);
+        //Devuelve la posicion de valor mas alto
+        System.out.print("La posicion de mayor venta es: [ ");
+        posicionMayorVenta(ventas);
+        for (int i = 0; i < posicionMayorVenta(ventas).length; i++) {
+            System.out.print(posicionMayorVenta(ventas)[i]+", ");;
+        }
+        System.out.print("]");
     }
 
     //metodos
@@ -53,6 +60,21 @@ public class Ventas {
                 }
             }
         }
+    }
+
+    public static int[] posicionMayorVenta(int[][] matriz){
+        int[] posicionMayorVenta = new int[2];
+        int valorAlto = 0;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if(matriz[i][j] > valorAlto){
+                    valorAlto = matriz[i][j];
+                    posicionMayorVenta[0]=i;
+                    posicionMayorVenta[1]=j;
+                }
+            }
+        }
+        return posicionMayorVenta;
     }
 
 }
